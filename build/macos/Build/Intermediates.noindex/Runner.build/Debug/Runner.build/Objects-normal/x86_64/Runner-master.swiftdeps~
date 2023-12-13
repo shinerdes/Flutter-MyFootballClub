@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)"
+options: "d46b38931d9f4eeeb1e4d7e827234edecdef3a9470b4333f90c323b56b488e2a"
+build_start_time: [1698041029, 63540000]
+build_end_time: [1698041029, 226354000]
+inputs:
+  "/Users/shinerdes/Desktop/football/my_football_club/macos/Flutter/GeneratedPluginRegistrant.swift": !private [1698040946, 79195841]
+  "/Users/shinerdes/Desktop/football/my_football_club/macos/Runner/AppDelegate.swift": !private [1678447072, 56955173]
+  "/Users/shinerdes/Desktop/football/my_football_club/macos/Runner/MainFlutterWindow.swift": !private [1678447072, 58915838]
