@@ -114,7 +114,7 @@ class _ClubInfo extends State<ClubInfo> {
           backgroundColor: Colors.white,
           elevation: 0,
 
-          title: const Text(''),
+          title: const Text('Team Info'),
           actions: [
             IconButton(
                 onPressed: () {

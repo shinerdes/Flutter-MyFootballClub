@@ -82,7 +82,7 @@ class _ClubSquads extends State<ClubSquads> {
           foregroundColor: Colors.black,
           backgroundColor: Colors.white,
           elevation: 0,
-          title: const Text(''),
+          title: const Text('Team Squads'),
           actions: [
             IconButton(
                 onPressed: () {
