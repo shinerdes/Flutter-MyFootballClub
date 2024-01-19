@@ -1,13 +1,14 @@
 import 'dart:convert';
 
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_football_club/components/ClubTitleCard.dart';
+
+import 'package:my_football_club/components/menuCard.dart';
 import 'package:my_football_club/model/team_info.dart';
-import 'package:my_football_club/screens/club_info.dart';
+
 import 'package:my_football_club/screens/club_init.dart';
 import 'package:my_football_club/screens/club_settings.dart';
-import 'package:my_football_club/screens/club_squads.dart';
-import 'package:my_football_club/screens/standing.dart';
+
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:social_media_flutter/widgets/icons.dart';
@@ -19,7 +20,6 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import '../theme/app_theme.dart';
 import '../widget/task_group.dart';
 
 class Home extends StatefulWidget {
@@ -30,7 +30,6 @@ class Home extends StatefulWidget {
 }
 
 class _Home extends State<Home> {
-  late PickClub _selectClub;
   var id;
   var clubname;
   var instagram;
@@ -50,9 +49,8 @@ class _Home extends State<Home> {
     http.StreamedResponse response = await request.send();
 
     if (response.statusCode == 200) {
-      var beforeData = await response.stream.bytesToString();
-
-      var json1 = json.decode(beforeData)["response"][0]["team"];
+      // var beforeData = await response.stream.bytesToString();
+      // var json1 = json.decode(beforeData)["response"][0]["team"];
     } else {
       print(response.reasonPhrase);
     }
@@ -128,19 +126,19 @@ class _Home extends State<Home> {
         elevation: 0,
         actions: [
           IconButton(
-              onPressed: () async {
-                Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ClubSetting()))
-                    .then((value) {
-                  setState(() {});
-                });
-              },
-              icon: const Icon(
-                Icons.change_circle_outlined,
-                color: Colors.black,
-              )),
+            onPressed: () async {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ClubSetting())).then((value) {
+                setState(() {});
+              });
+            },
+            icon: const Icon(
+              Icons.change_circle_outlined,
+              color: Colors.black,
+            ),
+          ),
         ],
       ),
       body: SafeArea(
@@ -166,8 +164,8 @@ class _Home extends State<Home> {
                 const SizedBox(height: 10),
                 buildGrid(context),
                 const SizedBox(height: 10),
-                Column(
-                  children: const [
+                const Column(
+                  children: [
                     MenuCard(
                       iconData: Icons.info_outline_rounded,
                       title: "Team Info",
@@ -249,157 +247,4 @@ StaggeredGrid buildGrid(BuildContext context) {
       ),
     ],
   );
-}
-
-class ClubTitleCard extends StatelessWidget {
-  const ClubTitleCard({
-    Key? key,
-    this.title = "Title",
-    this.image = "",
-  }) : super(key: key);
-  final String title;
-  final String image;
-
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      child: GestureDetector(
-        child: Padding(
-          padding: const EdgeInsets.all(0.0),
-          child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: 180,
-              decoration: BoxDecoration(
-                //color: Colors.pink, // added
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
-                    blurRadius: 10,
-                    spreadRadius: 4,
-                    offset: const Offset(2, 6),
-                  )
-                ],
-                gradient: AppColors.getDarkLinearGradient2(Colors.black),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Image.asset('assets/images/$image.png',
-                            width: 100, height: 100, fit: BoxFit.fill),
-                      ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 200,
-                          child: AutoSizeText(
-                            title
-                                .split('')
-                                .join('\ufeff')
-                                .replaceAll('\ufeff \ufeff', ' '),
-                            style: AppTheme.of(context)
-                                .styles
-                                .title!
-                                .copyWith(fontSize: 30),
-                            maxLines: 2,
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              )),
-        ),
-      ),
-    );
-  }
-}
-
-class MenuCard extends StatelessWidget {
-  const MenuCard(
-      {Key? key, this.iconData = Icons.abc, this.title = "Title", this.onMore})
-      : super(key: key);
-  final String title;
-  final IconData iconData;
-  final Function()? onMore;
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      child: GestureDetector(
-        onTap: () async {
-          if (title == "Team Info") {
-            Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const ClubInfo()))
-                .then((value) {});
-          } else if (title == "Standing") {
-            Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Standing()))
-                .then((value) {});
-          } else if (title == "Team Squads") {
-            Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const ClubSquads()))
-                .then((value) {});
-          }
-        },
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5.0),
-          child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: 100,
-              decoration: BoxDecoration(
-                //color: Colors.pink, // added
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
-                    blurRadius: 10,
-                    spreadRadius: 4,
-                    offset: const Offset(2, 6),
-                  )
-                ],
-                gradient: AppColors.getDarkLinearGradient2(Colors.black),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(
-                              iconData,
-                              size: 60,
-                              color: Colors.white,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(width: 20),
-                        Row(
-                          children: [
-                            Text(
-                              title,
-                              style: AppTheme.of(context).styles.title3,
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              )),
-        ),
-      ),
-    );
-  }
 }

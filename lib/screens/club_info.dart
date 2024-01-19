@@ -1,10 +1,15 @@
 import 'dart:convert';
 
-import 'package:auto_size_text/auto_size_text.dart';
+//import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:my_football_club/components/infoCleanSheetCard.dart';
+import 'package:my_football_club/components/infoFormationCard.dart';
+import 'package:my_football_club/components/infoGoalCard.dart';
+import 'package:my_football_club/components/infoPlayedCard.dart';
+import 'package:my_football_club/components/infoTitleCard.dart';
 import 'package:my_football_club/model/club_infomation.dart';
-import 'package:my_football_club/theme/app_theme.dart';
+//import 'package:my_football_club/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -12,7 +17,7 @@ import '../data/football_clubs.dart';
 import '../provider/clubProvider.dart';
 import 'package:http/http.dart' as http;
 
-import '../widget/task_group.dart';
+//import '../widget/task_group.dart';
 
 class ClubInfo extends StatefulWidget {
   const ClubInfo({super.key});
@@ -65,11 +70,11 @@ class _ClubInfo extends State<ClubInfo> {
     if (response.statusCode == 200) {
       var beforeData = await response.stream.bytesToString();
 
-      var json1 = json.decode(beforeData)["response"];
+      // var json1 = json.decode(beforeData)["response"];
 
-      var json2 = json.decode(beforeData)["response"]["league"];
+      // var json2 = json.decode(beforeData)["response"]["league"];
 
-      var json3 = json.decode(beforeData)["response"]["team"];
+      // var json3 = json.decode(beforeData)["response"]["team"];
 
       clubInfomation = ClubInfomation(
         name: json.decode(beforeData)["response"]["team"]["name"],
@@ -106,15 +111,28 @@ class _ClubInfo extends State<ClubInfo> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () => _onBackPressed(context),
+    return PopScope(
+      canPop: true,
+      onPopInvoked: (bool didPop) {
+        if (didPop) {
+          return;
+        }
+        _onBackPressed(context);
+      },
       child: Scaffold(
         appBar: AppBar(
           foregroundColor: Colors.black,
           backgroundColor: Colors.white,
           elevation: 0,
 
-          title: const Text('Team Info'),
+          title: const Text(
+            'Team Info',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           actions: [
             IconButton(
                 onPressed: () {
@@ -245,397 +263,4 @@ class _ClubInfo extends State<ClubInfo> {
 Future<bool> _onBackPressed(BuildContext context) async {
   Navigator.pop(context, false);
   return true;
-}
-
-class InfoPlayedCard extends StatelessWidget {
-  const InfoPlayedCard({
-    Key? key,
-    this.played = "played",
-    this.win = "win",
-    this.draw = "draw",
-    this.lose = "lose",
-    required this.image,
-  }) : super(key: key);
-
-  final Image image;
-  final String played;
-  final String win;
-  final String draw;
-  final String lose;
-
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      child: GestureDetector(
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
-                    blurRadius: 10,
-                    spreadRadius: 4,
-                    offset: const Offset(2, 6),
-                  )
-                ],
-                gradient: AppColors.getDarkLinearGradient3(Colors.black),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          children: [image],
-                        ),
-                        const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Text(
-                              "$played Played",
-                              style: AppTheme.of(context).styles.title3,
-                            )
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "$win Win",
-                              style: AppTheme.of(context).styles.title3,
-                            )
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "$draw Draw",
-                              style: AppTheme.of(context).styles.title3,
-                            )
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Flexible(
-                              child: Text(
-                                "$lose Lose",
-                                style: AppTheme.of(context).styles.title3,
-                              ),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              )),
-        ),
-      ),
-    );
-  }
-}
-
-class InfoGoalCard extends StatelessWidget {
-  const InfoGoalCard({
-    Key? key,
-    this.goals = "goals",
-    this.forGoals = "forGoals",
-    this.againstGoals = "againstGoals",
-    required this.image,
-  }) : super(key: key);
-
-  final Image image;
-  final String goals;
-  final String forGoals;
-  final String againstGoals;
-
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      child: GestureDetector(
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
-                    blurRadius: 10,
-                    spreadRadius: 4,
-                    offset: const Offset(2, 6),
-                  )
-                ],
-                gradient: AppColors.getDarkLinearGradient3(Colors.black),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          children: [image],
-                        ),
-                        const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Text(
-                              "$goals GD",
-                              style: AppTheme.of(context).styles.title3,
-                            )
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "$forGoals Score",
-                              style: AppTheme.of(context).styles.title3,
-                            )
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Flexible(
-                              child: Text(
-                                "$againstGoals \nConceded",
-                                style: AppTheme.of(context).styles.title3,
-                              ),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              )),
-        ),
-      ),
-    );
-  }
-}
-
-class InfoCleanSheetCard extends StatelessWidget {
-  const InfoCleanSheetCard({
-    Key? key,
-    this.cleanSheet = "cleanSheet",
-    this.failedToScore = "forGoals",
-    required this.image,
-  }) : super(key: key);
-
-  final String cleanSheet;
-  final String failedToScore;
-
-  final Image image;
-
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      child: GestureDetector(
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
-                    blurRadius: 10,
-                    spreadRadius: 4,
-                    offset: const Offset(2, 6),
-                  )
-                ],
-                gradient: AppColors.getDarkLinearGradient3(Colors.black),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          children: [
-                            image,
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Text(
-                              "$cleanSheet CleanSheet",
-                              style: AppTheme.of(context).styles.title3,
-                            )
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Flexible(
-                              child: Text(
-                                "$failedToScore FailedToScore",
-                                style: AppTheme.of(context).styles.title3,
-                              ),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              )),
-        ),
-      ),
-    );
-  }
-}
-
-class InfoFormationCard extends StatelessWidget {
-  const InfoFormationCard({
-    Key? key,
-    this.bestFormation = "bestFormation",
-    this.bestFormationplay = "bestFormationplay",
-    required this.image,
-  }) : super(key: key);
-
-  final String bestFormation;
-  final String bestFormationplay;
-  final Image image;
-
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      child: GestureDetector(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
-                    blurRadius: 10,
-                    spreadRadius: 4,
-                    offset: const Offset(2, 6),
-                  )
-                ],
-                gradient: AppColors.getDarkLinearGradient3(Colors.black),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          children: [image],
-                        ),
-                        const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Text(
-                              "$bestFormation Formation",
-                              style: AppTheme.of(context).styles.title3,
-                            )
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Flexible(
-                              child: Text(
-                                "$bestFormationplay Play",
-                                style: AppTheme.of(context).styles.title3,
-                              ),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              )),
-        ),
-      ),
-    );
-  }
-}
-
-class InfoTitleCard extends StatelessWidget {
-  const InfoTitleCard({
-    Key? key,
-    this.clubImage = "clubImage",
-    this.clubName = "clubName",
-  }) : super(key: key);
-
-  final String clubImage;
-  final String clubName;
-
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      child: GestureDetector(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
-                    blurRadius: 10,
-                    spreadRadius: 4,
-                    offset: const Offset(2, 6),
-                  )
-                ],
-                gradient: AppColors.getDarkLinearGradient2(Colors.black),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          children: [
-                            Image.network(
-                              clubImage,
-                              width: 90,
-                              height: 90,
-                              alignment: Alignment.center,
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 200,
-                              child: AutoSizeText(
-                                clubName
-                                    .split('')
-                                    .join('\ufeff')
-                                    .replaceAll('\ufeff \ufeff', ' '),
-                                style: AppTheme.of(context)
-                                    .styles
-                                    .title!
-                                    .copyWith(fontSize: 30),
-                                maxLines: 2,
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              )),
-        ),
-      ),
-    );
-  }
 }

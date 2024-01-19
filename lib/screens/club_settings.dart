@@ -30,11 +30,23 @@ class _ClubSetting extends State<ClubSetting> {
   Widget build(BuildContext context) {
     _selectIndex = Provider.of<PickClub>(context, listen: false);
 
-    return WillPopScope(
-      onWillPop: () => _onBackPressed(context),
+    return PopScope(
+      canPop: true,
+      onPopInvoked: (bool didPop) {
+        if (didPop) {
+
+          return;
+        }
+        _onBackPressed(context);
+      },
       child: Scaffold(
           appBar: AppBar(
-            title: const Text("Pick Your Club"),
+            title: const Text("Pick Your Club", style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             foregroundColor: Colors.black,
             backgroundColor: Colors.white,
             elevation: 0,

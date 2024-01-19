@@ -28,7 +28,12 @@ class _ClubInit extends State<ClubInit> {
     // TODO: implement build
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Pick Your Club"),
+          title: const Text("Pick Your Club", style: TextStyle(
+              color: Colors.black,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           foregroundColor: Colors.black,
           backgroundColor: Colors.white,
           elevation: 0,
@@ -48,35 +53,31 @@ class _ClubInit extends State<ClubInit> {
                           side: BorderSide(width: 2.0),
                         ),
                         actions: <Widget>[
-                          Container(
-                            child: ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  setIndex(selectedCard);
-                                });
-                                Navigator.of(context).pop();
-                                Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                        builder: (context) => const Home()));
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    Colors.deepPurple.withOpacity(0.7),
-                              ),
-                              child: const Text("네"),
+                          ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                setIndex(selectedCard);
+                              });
+                              Navigator.of(context).pop();
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (context) => const Home()));
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  Colors.deepPurple.withOpacity(0.7),
                             ),
+                            child: const Text("네"),
                           ),
-                          Container(
-                            child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.of(context).pop(); //창 닫기
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    Colors.deepPurple.withOpacity(0.7),
-                              ),
-                              child: const Text("아니요"),
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).pop(); //창 닫기
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  Colors.deepPurple.withOpacity(0.7),
                             ),
+                            child: const Text("아니요"),
                           ),
                         ],
                       );

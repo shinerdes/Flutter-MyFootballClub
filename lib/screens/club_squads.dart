@@ -51,7 +51,7 @@ class _ClubSquads extends State<ClubSquads> {
       //print(await response.stream.bytesToString());
 
       var beforeData = await response.stream.bytesToString();
-      var json1 = json.decode(beforeData)["response"];
+      //var json1 = json.decode(beforeData)["response"];
       var json2 = json.decode(beforeData)["response"][0]["players"];
 
       playersCount =
@@ -75,14 +75,27 @@ class _ClubSquads extends State<ClubSquads> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () => _onBackPressed(context),
+    return PopScope(
+      canPop: true,
+      onPopInvoked: (bool didPop) {
+        if (didPop) {
+          return;
+        }
+        _onBackPressed(context);
+      },
       child: Scaffold(
         appBar: AppBar(
           foregroundColor: Colors.black,
           backgroundColor: Colors.white,
           elevation: 0,
-          title: const Text('Team Squads'),
+          title: const Text(
+            'Team Squads',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           actions: [
             IconButton(
                 onPressed: () {

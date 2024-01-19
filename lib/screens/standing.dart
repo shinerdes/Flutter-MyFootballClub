@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+//import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../data/football_clubs.dart';
-import '../provider/clubProvider.dart';
+//import '../data/football_clubs.dart';
+//import '../provider/clubProvider.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:my_football_club/model/standing_info.dart';
@@ -28,8 +28,8 @@ class _StandingState extends State<Standing> {
   Future<List<StandingInfo>> _getStanding() async {
     await Future.delayed(const Duration(seconds: 1));
 
-    var id = footballClubList[
-        Provider.of<PickClub>(context, listen: false).selectIndex]['id']!;
+    //var id = footballClubList[
+    //   Provider.of<PickClub>(context, listen: false).selectIndex]['id']!;
 
     StandingInfo standingInfo = const StandingInfo(
         rank: 0, logo: '', name: '', played: 0, points: 0, goalsDiff: 0);
@@ -48,7 +48,6 @@ class _StandingState extends State<Standing> {
     if (response.statusCode == 200) {
       var beforeData = await response.stream.bytesToString();
 
-      var json1 = json.decode(beforeData)["response"];
       var json2 = json.decode(beforeData)["response"][0]["league"]["standings"]
           [0]; // 마지막 부분이 순위
 
@@ -73,14 +72,27 @@ class _StandingState extends State<Standing> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () => _onBackPressed(context),
+    return PopScope(
+      canPop: true,
+      onPopInvoked: (bool didPop) {
+        if (didPop) {
+          return;
+        }
+        _onBackPressed(context);
+      },
       child: Scaffold(
         appBar: AppBar(
           foregroundColor: Colors.black,
           backgroundColor: Colors.white,
           elevation: 0,
-          title: const Text('Standing'),
+          title: const Text(
+            'Standing',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           actions: [
             IconButton(
                 onPressed: () async {
