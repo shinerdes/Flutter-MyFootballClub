@@ -28,7 +28,9 @@ class _ClubInit extends State<ClubInit> {
     // TODO: implement build
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Pick Your Club", style: TextStyle(
+          title: const Text(
+            "Pick Your Club",
+            style: TextStyle(
               color: Colors.black,
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -64,8 +66,7 @@ class _ClubInit extends State<ClubInit> {
                                       builder: (context) => const Home()));
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  Colors.deepPurple.withOpacity(0.7),
+                              backgroundColor: Colors.red.withOpacity(0.7),
                             ),
                             child: const Text("네"),
                           ),
@@ -74,8 +75,7 @@ class _ClubInit extends State<ClubInit> {
                               Navigator.of(context).pop(); //창 닫기
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  Colors.deepPurple.withOpacity(0.7),
+                              backgroundColor: Colors.red.withOpacity(0.7),
                             ),
                             child: const Text("아니요"),
                           ),
@@ -102,9 +102,11 @@ class _ClubInit extends State<ClubInit> {
             itemCount: footballClubList.length,
             itemBuilder: (context, index) => GestureDetector(
               onTap: () {
-                setState(() {
-                  selectedCard = index;
-                });
+                setState(
+                  () {
+                    selectedCard = index;
+                  },
+                );
               },
               child: Card(
                   shape: RoundedRectangleBorder(
@@ -123,7 +125,7 @@ class _ClubInit extends State<ClubInit> {
                               ]
                             : [
                                 Colors.white.withOpacity(0.5),
-                                Colors.deepPurple.withOpacity(0.7),
+                                Colors.red.withOpacity(0.7),
                               ],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,

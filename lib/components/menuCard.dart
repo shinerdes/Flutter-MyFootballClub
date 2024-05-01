@@ -40,13 +40,13 @@ class MenuCard extends StatelessWidget {
                 //color: Colors.pink, // added
                 boxShadow: [
                   BoxShadow(
-                    color: const Color.fromARGB(255, 1, 1, 1).withOpacity(0.5),
-                    blurRadius: 10,
+                    color: const Color.fromARGB(255, 1, 1, 1).withOpacity(0.2),
+                    blurRadius: 20,
                     spreadRadius: 4,
-                    offset: const Offset(2, 6),
+                    offset: const Offset(3, 6),
                   )
                 ],
-                gradient: AppColors.getDarkLinearGradient2(Colors.black),
+                gradient: AppColors.getDarkLinearGradient2(Colors.deepPurple),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Stack(
@@ -71,7 +71,10 @@ class MenuCard extends StatelessWidget {
                           children: [
                             Text(
                               title,
-                              style: AppTheme.of(context).styles.title3,
+                              style: AppTheme.of(context)
+                                  .styles
+                                  .title!
+                                  .copyWith(fontSize: 30, color: Colors.white),
                             )
                           ],
                         ),

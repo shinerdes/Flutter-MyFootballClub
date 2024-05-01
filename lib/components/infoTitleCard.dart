@@ -23,13 +23,13 @@ class InfoTitleCard extends StatelessWidget {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
-                    blurRadius: 10,
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 20,
                     spreadRadius: 4,
-                    offset: const Offset(2, 6),
+                    offset: const Offset(3, 6),
                   )
                 ],
-                gradient: AppColors.getDarkLinearGradient2(Colors.black),
+                gradient: AppColors.getDarkLinearGradient2(Colors.deepPurple),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Stack(
@@ -61,7 +61,8 @@ class InfoTitleCard extends StatelessWidget {
                                 style: AppTheme.of(context)
                                     .styles
                                     .title!
-                                    .copyWith(fontSize: 30),
+                                    .copyWith(
+                                        fontSize: 30, color: Colors.white),
                                 maxLines: 2,
                                 textAlign: TextAlign.center,
                               ),

@@ -34,14 +34,15 @@ class _ClubSetting extends State<ClubSetting> {
       canPop: true,
       onPopInvoked: (bool didPop) {
         if (didPop) {
-
           return;
         }
         _onBackPressed(context);
       },
       child: Scaffold(
           appBar: AppBar(
-            title: const Text("Pick Your Club", style: TextStyle(
+            title: const Text(
+              "Pick Your Club",
+              style: TextStyle(
                 color: Colors.black,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -55,10 +56,10 @@ class _ClubSetting extends State<ClubSetting> {
             bottom: true,
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+                crossAxisCount: 3,
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 6,
-                childAspectRatio: 3 / 4,
+                childAspectRatio: 3 / 5,
               ),
               itemCount: footballClubList.length,
               itemBuilder: (context, index) => GestureDetector(
@@ -85,11 +86,11 @@ class _ClubSetting extends State<ClubSetting> {
                                   index
                               ? [
                                   Colors.black.withOpacity(0.8),
-                                  Colors.deepPurple.withOpacity(1),
+                                  Colors.deepPurple.withOpacity(0.8),
                                 ]
                               : [
-                                  Colors.white.withOpacity(0.5),
-                                  Colors.deepPurple.withOpacity(0.7),
+                                  Colors.white.withOpacity(0.8),
+                                  Colors.deepPurple.withOpacity(0.2),
                                 ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -110,10 +111,13 @@ class _ClubSetting extends State<ClubSetting> {
                             child: Text(
                               footballClubList[index]['clubname']!,
                               textAlign: TextAlign.center,
-                              style: AppTheme.of(context)
-                                  .styles
-                                  .title!
-                                  .copyWith(fontSize: 23, color: Colors.black),
+                              style: Provider.of<PickClub>(context)
+                                          .selectIndex ==
+                                      index
+                                  ? AppTheme.of(context).styles.title!.copyWith(
+                                      fontSize: 13, color: Colors.white)
+                                  : AppTheme.of(context).styles.title!.copyWith(
+                                      fontSize: 13, color: Colors.black),
                             ),
                           ),
                         ),
