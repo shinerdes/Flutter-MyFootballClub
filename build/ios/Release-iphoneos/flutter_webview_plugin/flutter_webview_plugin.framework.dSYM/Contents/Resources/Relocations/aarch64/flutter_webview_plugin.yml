@@ -1,0 +1,73 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/shinerdes/Desktop/football/my_football_club/build/ios/Release-iphoneos/flutter_webview_plugin/flutter_webview_plugin.framework/flutter_webview_plugin'
+relocations:
+  - { offsetInCU: 0x33, offset: 0x7385, size: 0x8, addend: 0x0, symName: _flutter_webview_pluginVersionString, symObjAddr: 0x0, symBinAddr: 0xCF48, symSize: 0x0 }
+  - { offsetInCU: 0x67, offset: 0x73B9, size: 0x8, addend: 0x0, symName: _flutter_webview_pluginVersionNumber, symObjAddr: 0x38, symBinAddr: 0xCF80, symSize: 0x0 }
+  - { offsetInCU: 0x27, offset: 0x73F5, size: 0x8, addend: 0x0, symName: '+[FlutterWebviewPlugin registerWithRegistrar:]', symObjAddr: 0x0, symBinAddr: 0x8000, symSize: 0x120 }
+  - { offsetInCU: 0x10A, offset: 0x74D8, size: 0x8, addend: 0x0, symName: _channel, symObjAddr: 0x12160, symBinAddr: 0x129C8, symSize: 0x0 }
+  - { offsetInCU: 0x226, offset: 0x75F4, size: 0x8, addend: 0x0, symName: '+[FlutterWebviewPlugin registerWithRegistrar:]', symObjAddr: 0x0, symBinAddr: 0x8000, symSize: 0x120 }
+  - { offsetInCU: 0x27F, offset: 0x764D, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin initWithViewController:]', symObjAddr: 0x120, symBinAddr: 0x8120, symSize: 0x6C }
+  - { offsetInCU: 0x2C2, offset: 0x7690, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin handleMethodCall:result:]', symObjAddr: 0x18C, symBinAddr: 0x818C, symSize: 0x4D8 }
+  - { offsetInCU: 0x31B, offset: 0x76E9, size: 0x8, addend: 0x0, symName: '___48-[FlutterWebviewPlugin handleMethodCall:result:]_block_invoke', symObjAddr: 0x664, symBinAddr: 0x8664, symSize: 0xC }
+  - { offsetInCU: 0x373, offset: 0x7741, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32b, symObjAddr: 0x670, symBinAddr: 0x8670, symSize: 0x10 }
+  - { offsetInCU: 0x399, offset: 0x7767, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s, symObjAddr: 0x680, symBinAddr: 0x8680, symSize: 0x8 }
+  - { offsetInCU: 0x3B6, offset: 0x7784, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin initWebview:withResult:]', symObjAddr: 0x688, symBinAddr: 0x8688, symSize: 0x998 }
+  - { offsetInCU: 0x525, offset: 0x78F3, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin webView:didReceiveAuthenticationChallenge:completionHandler:]', symObjAddr: 0x1020, symBinAddr: 0x9020, symSize: 0xEC }
+  - { offsetInCU: 0x68E, offset: 0x7A5C, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin parseRect:]', symObjAddr: 0x110C, symBinAddr: 0x910C, symSize: 0x10C }
+  - { offsetInCU: 0x6CD, offset: 0x7A9B, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin scrollViewDidScroll:]', symObjAddr: 0x1218, symBinAddr: 0x9218, symSize: 0x170 }
+  - { offsetInCU: 0x726, offset: 0x7AF4, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin navigate:]', symObjAddr: 0x1388, symBinAddr: 0x9388, symSize: 0x278 }
+  - { offsetInCU: 0x7FE, offset: 0x7BCC, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin evalJavascript:completionHandler:]', symObjAddr: 0x1600, symBinAddr: 0x9600, symSize: 0x138 }
+  - { offsetInCU: 0x880, offset: 0x7C4E, size: 0x8, addend: 0x0, symName: '___57-[FlutterWebviewPlugin evalJavascript:completionHandler:]_block_invoke', symObjAddr: 0x1738, symBinAddr: 0x9738, symSize: 0x5C }
+  - { offsetInCU: 0x8EA, offset: 0x7CB8, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin resize:]', symObjAddr: 0x1794, symBinAddr: 0x9794, symSize: 0xE8 }
+  - { offsetInCU: 0x955, offset: 0x7D23, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin observeValueForKeyPath:ofObject:change:context:]', symObjAddr: 0x187C, symBinAddr: 0x987C, symSize: 0x1B0 }
+  - { offsetInCU: 0x9C1, offset: 0x7D8F, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin closeWebView]', symObjAddr: 0x1A2C, symBinAddr: 0x9A2C, symSize: 0xF0 }
+  - { offsetInCU: 0x9F1, offset: 0x7DBF, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin reloadUrl:]', symObjAddr: 0x1B1C, symBinAddr: 0x9B1C, symSize: 0x158 }
+  - { offsetInCU: 0xA70, offset: 0x7E3E, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin cleanCookies:]', symObjAddr: 0x1C74, symBinAddr: 0x9C74, symSize: 0x164 }
+  - { offsetInCU: 0xAEF, offset: 0x7EBD, size: 0x8, addend: 0x0, symName: '___37-[FlutterWebviewPlugin cleanCookies:]_block_invoke', symObjAddr: 0x1DD8, symBinAddr: 0x9DD8, symSize: 0x4 }
+  - { offsetInCU: 0xB16, offset: 0x7EE4, size: 0x8, addend: 0x0, symName: '___37-[FlutterWebviewPlugin cleanCookies:]_block_invoke_2', symObjAddr: 0x1DDC, symBinAddr: 0x9DDC, symSize: 0x84 }
+  - { offsetInCU: 0xB81, offset: 0x7F4F, size: 0x8, addend: 0x0, symName: '___37-[FlutterWebviewPlugin cleanCookies:]_block_invoke_3', symObjAddr: 0x1E60, symBinAddr: 0x9E60, symSize: 0x10 }
+  - { offsetInCU: 0xBCD, offset: 0x7F9B, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40s48b, symObjAddr: 0x1E70, symBinAddr: 0x9E70, symSize: 0x3C }
+  - { offsetInCU: 0xBF3, offset: 0x7FC1, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s40s48s, symObjAddr: 0x1EAC, symBinAddr: 0x9EAC, symSize: 0x30 }
+  - { offsetInCU: 0xC10, offset: 0x7FDE, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin cleanCache:]', symObjAddr: 0x1EDC, symBinAddr: 0x9EDC, symSize: 0x110 }
+  - { offsetInCU: 0xC8F, offset: 0x805D, size: 0x8, addend: 0x0, symName: '___35-[FlutterWebviewPlugin cleanCache:]_block_invoke', symObjAddr: 0x1FEC, symBinAddr: 0x9FEC, symSize: 0x10 }
+  - { offsetInCU: 0xCDB, offset: 0x80A9, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin show]', symObjAddr: 0x1FFC, symBinAddr: 0x9FFC, symSize: 0x60 }
+  - { offsetInCU: 0xD0C, offset: 0x80DA, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin hide]', symObjAddr: 0x205C, symBinAddr: 0xA05C, symSize: 0x60 }
+  - { offsetInCU: 0xD3D, offset: 0x810B, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin stopLoading]', symObjAddr: 0x20BC, symBinAddr: 0xA0BC, symSize: 0x5C }
+  - { offsetInCU: 0xD6E, offset: 0x813C, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin back]', symObjAddr: 0x2118, symBinAddr: 0xA118, symSize: 0x64 }
+  - { offsetInCU: 0xD9F, offset: 0x816D, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin onCanGoBack:result:]', symObjAddr: 0x217C, symBinAddr: 0xA17C, symSize: 0x8C }
+  - { offsetInCU: 0xE10, offset: 0x81DE, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin onCanGoForward:result:]', symObjAddr: 0x2208, symBinAddr: 0xA208, symSize: 0x8C }
+  - { offsetInCU: 0xE81, offset: 0x824F, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin forward]', symObjAddr: 0x2294, symBinAddr: 0xA294, symSize: 0x64 }
+  - { offsetInCU: 0xEB2, offset: 0x8280, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin reload]', symObjAddr: 0x22F8, symBinAddr: 0xA2F8, symSize: 0x64 }
+  - { offsetInCU: 0xEE3, offset: 0x82B1, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin checkInvalidUrl:]', symObjAddr: 0x235C, symBinAddr: 0xA35C, symSize: 0x120 }
+  - { offsetInCU: 0xF76, offset: 0x8344, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin webView:decidePolicyForNavigationAction:decisionHandler:]', symObjAddr: 0x247C, symBinAddr: 0xA47C, symSize: 0x440 }
+  - { offsetInCU: 0x1027, offset: 0x83F5, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin webView:createWebViewWithConfiguration:forNavigationAction:windowFeatures:]', symObjAddr: 0x28BC, symBinAddr: 0xA8BC, symSize: 0xA4 }
+  - { offsetInCU: 0x1090, offset: 0x845E, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin webView:didStartProvisionalNavigation:]', symObjAddr: 0x2960, symBinAddr: 0xA960, symSize: 0xF4 }
+  - { offsetInCU: 0x10D9, offset: 0x84A7, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin webView:didFailProvisionalNavigation:withError:]', symObjAddr: 0x2A54, symBinAddr: 0xAA54, symSize: 0x188 }
+  - { offsetInCU: 0x1142, offset: 0x8510, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin webView:didFinishNavigation:]', symObjAddr: 0x2BDC, symBinAddr: 0xABDC, symSize: 0xF4 }
+  - { offsetInCU: 0x118B, offset: 0x8559, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin webView:didFailNavigation:withError:]', symObjAddr: 0x2CD0, symBinAddr: 0xACD0, symSize: 0x11C }
+  - { offsetInCU: 0x11E0, offset: 0x85AE, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin webView:decidePolicyForNavigationResponse:decisionHandler:]', symObjAddr: 0x2DEC, symBinAddr: 0xADEC, symSize: 0x1F4 }
+  - { offsetInCU: 0x1272, offset: 0x8640, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin registerJavaScriptChannels:controller:]', symObjAddr: 0x2FE0, symBinAddr: 0xAFE0, symSize: 0x1B4 }
+  - { offsetInCU: 0x1313, offset: 0x86E1, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin scrollViewWillBeginDragging:]', symObjAddr: 0x3194, symBinAddr: 0xB194, symSize: 0x90 }
+  - { offsetInCU: 0x1354, offset: 0x8722, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin webView:runJavaScriptAlertPanelWithMessage:initiatedByFrame:completionHandler:]', symObjAddr: 0x3224, symBinAddr: 0xB224, symSize: 0x170 }
+  - { offsetInCU: 0x13CD, offset: 0x879B, size: 0x8, addend: 0x0, symName: '___102-[FlutterWebviewPlugin webView:runJavaScriptAlertPanelWithMessage:initiatedByFrame:completionHandler:]_block_invoke', symObjAddr: 0x3394, symBinAddr: 0xB394, symSize: 0xC }
+  - { offsetInCU: 0x141F, offset: 0x87ED, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:]', symObjAddr: 0x33A0, symBinAddr: 0xB3A0, symSize: 0x234 }
+  - { offsetInCU: 0x1498, offset: 0x8866, size: 0x8, addend: 0x0, symName: '___104-[FlutterWebviewPlugin webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:]_block_invoke', symObjAddr: 0x35D4, symBinAddr: 0xB5D4, symSize: 0x10 }
+  - { offsetInCU: 0x14F0, offset: 0x88BE, size: 0x8, addend: 0x0, symName: '___104-[FlutterWebviewPlugin webView:runJavaScriptConfirmPanelWithMessage:initiatedByFrame:completionHandler:]_block_invoke_2', symObjAddr: 0x35E4, symBinAddr: 0xB5E4, symSize: 0x10 }
+  - { offsetInCU: 0x1548, offset: 0x8916, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin webView:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:]', symObjAddr: 0x35F4, symBinAddr: 0xB5F4, symSize: 0x2D0 }
+  - { offsetInCU: 0x15D1, offset: 0x899F, size: 0x8, addend: 0x0, symName: '___117-[FlutterWebviewPlugin webView:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:]_block_invoke', symObjAddr: 0x38C4, symBinAddr: 0xB8C4, symSize: 0x58 }
+  - { offsetInCU: 0x162C, offset: 0x89FA, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40s, symObjAddr: 0x391C, symBinAddr: 0xB91C, symSize: 0x28 }
+  - { offsetInCU: 0x1652, offset: 0x8A20, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s40s, symObjAddr: 0x3944, symBinAddr: 0xB944, symSize: 0x28 }
+  - { offsetInCU: 0x166F, offset: 0x8A3D, size: 0x8, addend: 0x0, symName: '___117-[FlutterWebviewPlugin webView:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:]_block_invoke.177', symObjAddr: 0x396C, symBinAddr: 0xB96C, symSize: 0x10 }
+  - { offsetInCU: 0x16C7, offset: 0x8A95, size: 0x8, addend: 0x0, symName: '___117-[FlutterWebviewPlugin webView:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:]_block_invoke_2', symObjAddr: 0x397C, symBinAddr: 0xB97C, symSize: 0x78 }
+  - { offsetInCU: 0x1736, offset: 0x8B04, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40b, symObjAddr: 0x39F4, symBinAddr: 0xB9F4, symSize: 0x34 }
+  - { offsetInCU: 0x175C, offset: 0x8B2A, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin viewController]', symObjAddr: 0x3A28, symBinAddr: 0xBA28, symSize: 0x8 }
+  - { offsetInCU: 0x1790, offset: 0x8B5E, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin setViewController:]', symObjAddr: 0x3A30, symBinAddr: 0xBA30, symSize: 0xC }
+  - { offsetInCU: 0x17CD, offset: 0x8B9B, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin webview]', symObjAddr: 0x3A3C, symBinAddr: 0xBA3C, symSize: 0x8 }
+  - { offsetInCU: 0x1801, offset: 0x8BCF, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin setWebview:]', symObjAddr: 0x3A44, symBinAddr: 0xBA44, symSize: 0xC }
+  - { offsetInCU: 0x183E, offset: 0x8C0C, size: 0x8, addend: 0x0, symName: '-[FlutterWebviewPlugin .cxx_destruct]', symObjAddr: 0x3A50, symBinAddr: 0xBA50, symSize: 0x54 }
+  - { offsetInCU: 0x27, offset: 0x94AC, size: 0x8, addend: 0x0, symName: '-[FLTCommunityJavaScriptChannel initWithMethodChannel:javaScriptChannelName:]', symObjAddr: 0x0, symBinAddr: 0xBAA4, symSize: 0xA4 }
+  - { offsetInCU: 0x7D, offset: 0x9502, size: 0x8, addend: 0x0, symName: '-[FLTCommunityJavaScriptChannel initWithMethodChannel:javaScriptChannelName:]', symObjAddr: 0x0, symBinAddr: 0xBAA4, symSize: 0xA4 }
+  - { offsetInCU: 0xCF, offset: 0x9554, size: 0x8, addend: 0x0, symName: '-[FLTCommunityJavaScriptChannel userContentController:didReceiveScriptMessage:]', symObjAddr: 0xA4, symBinAddr: 0xBB48, symSize: 0x104 }
+  - { offsetInCU: 0x128, offset: 0x95AD, size: 0x8, addend: 0x0, symName: '-[FLTCommunityJavaScriptChannel .cxx_destruct]', symObjAddr: 0x1A8, symBinAddr: 0xBC4C, symSize: 0x30 }
+...

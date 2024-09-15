@@ -3,6 +3,7 @@ import 'dart:convert';
 //import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_football_club/components/infoDetailFormationCard.dart';
+import 'package:my_football_club/components/infoFormCard.dart';
 
 import 'package:my_football_club/components/infoPlayedGoalsCard.dart';
 import 'package:my_football_club/components/infoTitleCard.dart';
@@ -27,18 +28,9 @@ class ClubInfo extends StatefulWidget {
 }
 
 class _ClubInfo extends State<ClubInfo> with SingleTickerProviderStateMixin {
-  late TabController _tabController;
-
   @override
   void initState() {
-    _tabController = TabController(length: 2, vsync: this);
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _tabController.dispose();
   }
 
   var headers = {
@@ -190,63 +182,27 @@ class _ClubInfo extends State<ClubInfo> with SingleTickerProviderStateMixin {
                       const SizedBox(
                         height: 10,
                       ),
-                      Container(
-                        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                            10,
-                          ),
-                          color: Colors.grey[200],
-                        ),
-                        child: TabBar(
-                          controller: _tabController,
-                          // give the indicator a decoration (color and border radius)
-                          indicator: BoxDecoration(
-                            borderRadius: BorderRadius.circular(
-                              5.0,
-                            ),
-                            color: Colors.deepPurple,
-                          ),
-                          labelColor: Colors.white,
-                          unselectedLabelColor: Colors.black,
-                          tabs: const [
-                            Tab(
-                              text: 'Played & Goals',
-                            ),
-                            Tab(
-                              text: 'Detail & Formation',
-                            ),
-                          ],
-                        ),
+                      Infoformcard(
+                        form: snapshot.data!.recentFive.toString(),
+                      ),
+                      InfoPlayedGoalsCard(
+                        played: snapshot.data!.played.toString(),
+                        win: snapshot.data!.win.toString(),
+                        draw: snapshot.data!.draw.toString(),
+                        lose: snapshot.data!.lose.toString(),
+                        goals: snapshot.data!.goals.toString(),
+                        forGoals: snapshot.data!.forGoals.toString(),
+                        againstGoals: snapshot.data!.againstGoals.toString(),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        height: 300,
-                        child:
-                            TabBarView(controller: _tabController, children: [
-                          InfoPlayedGoalsCard(
-                            played: snapshot.data!.played.toString(),
-                            win: snapshot.data!.win.toString(),
-                            draw: snapshot.data!.draw.toString(),
-                            lose: snapshot.data!.lose.toString(),
-                            goals: snapshot.data!.goals.toString(),
-                            forGoals: snapshot.data!.forGoals.toString(),
-                            againstGoals:
-                                snapshot.data!.againstGoals.toString(),
-                          ),
-                          InfoCleanFormationCard(
-                            cleanSheet: snapshot.data!.cleanSheet.toString(),
-                            failedToScore:
-                                snapshot.data!.failedToScore.toString(),
-                            bestFormation:
-                                snapshot.data!.bestFormation.toString(),
-                            bestFormationplay:
-                                snapshot.data!.bestFormationplay.toString(),
-                          ),
-                        ]),
+                      InfoCleanFormationCard(
+                        cleanSheet: snapshot.data!.cleanSheet.toString(),
+                        failedToScore: snapshot.data!.failedToScore.toString(),
+                        bestFormation: snapshot.data!.bestFormation.toString(),
+                        bestFormationplay:
+                            snapshot.data!.bestFormationplay.toString(),
                       ),
                     ],
                   );
@@ -265,71 +221,67 @@ class _ClubInfo extends State<ClubInfo> with SingleTickerProviderStateMixin {
   }
 }
 
-
-
-
-
-                      // StaggeredGrid.count(
-                      //   crossAxisCount: 2,
-                      //   mainAxisSpacing: 5,
-                      //   crossAxisSpacing: 5,
-                      //   children: [
-                      //     StaggeredGridTile.count(
-                      //       crossAxisCellCount: 1,
-                      //       mainAxisCellCount: 1.8,
-                      //       child: InfoPlayedCard(
-                      //         image: Image.asset(
-                      //           'assets/images/football-icon.png',
-                      //           width: 75,
-                      //           height: 75,
-                      //           fit: BoxFit.cover,
-                      //           color: Colors.white,
-                      //         ),
-                      //         played: snapshot.data!.played.toString(),
-                      //         win: snapshot.data!.win.toString(),
-                      //         draw: snapshot.data!.draw.toString(),
-                      //         lose: snapshot.data!.lose.toString(),
-                      //       ),
-                      //     ),
-                      //     StaggeredGridTile.count(
-                      //       crossAxisCellCount: 1,
-                      //       mainAxisCellCount: 1.8,
-                      //       child: InfoGoalCard(
-                      //         image: Image.asset(
-                      //           'assets/images/football-icon.png',
-                      //           width: 75,
-                      //           height: 75,
-                      //           fit: BoxFit.cover,
-                      //           color: Colors.white,
-                      //         ),
-                      //         goals: snapshot.data!.goals.toString(),
-                      //         forGoals: snapshot.data!.forGoals.toString(),
-                      //         againstGoals:
-                      //             snapshot.data!.againstGoals.toString(),
-                      //       ),
-                      //     ),
-                      //   ],
-                      // ),
-                      // InfoCleanSheetCard(
-                      //   image: Image.asset(
-                      //     'assets/images/goalkeeper-icon.png',
-                      //     width: 75,
-                      //     height: 75,
-                      //     fit: BoxFit.cover,
-                      //     color: Colors.white,
-                      //   ),
-                      //   cleanSheet: snapshot.data!.cleanSheet.toString(),
-                      //   failedToScore: snapshot.data!.failedToScore.toString(),
-                      // ),
-                      // InfoFormationCard(
-                      //   image: Image.asset(
-                      //     'assets/images/formation-icon.png',
-                      //     width: 75,
-                      //     height: 75,
-                      //     fit: BoxFit.cover,
-                      //     color: Colors.white,
-                      //   ),
-                      //   bestFormation: snapshot.data!.bestFormation.toString(),
-                      //   bestFormationplay:
-                      //       snapshot.data!.bestFormationplay.toString(),
-                      // )
+// StaggeredGrid.count(
+//   crossAxisCount: 2,
+//   mainAxisSpacing: 5,
+//   crossAxisSpacing: 5,
+//   children: [
+//     StaggeredGridTile.count(
+//       crossAxisCellCount: 1,
+//       mainAxisCellCount: 1.8,
+//       child: InfoPlayedCard(
+//         image: Image.asset(
+//           'assets/images/football-icon.png',
+//           width: 75,
+//           height: 75,
+//           fit: BoxFit.cover,
+//           color: Colors.white,
+//         ),
+//         played: snapshot.data!.played.toString(),
+//         win: snapshot.data!.win.toString(),
+//         draw: snapshot.data!.draw.toString(),
+//         lose: snapshot.data!.lose.toString(),
+//       ),
+//     ),
+//     StaggeredGridTile.count(
+//       crossAxisCellCount: 1,
+//       mainAxisCellCount: 1.8,
+//       child: InfoGoalCard(
+//         image: Image.asset(
+//           'assets/images/football-icon.png',
+//           width: 75,
+//           height: 75,
+//           fit: BoxFit.cover,
+//           color: Colors.white,
+//         ),
+//         goals: snapshot.data!.goals.toString(),
+//         forGoals: snapshot.data!.forGoals.toString(),
+//         againstGoals:
+//             snapshot.data!.againstGoals.toString(),
+//       ),
+//     ),
+//   ],
+// ),
+// InfoCleanSheetCard(
+//   image: Image.asset(
+//     'assets/images/goalkeeper-icon.png',
+//     width: 75,
+//     height: 75,
+//     fit: BoxFit.cover,
+//     color: Colors.white,
+//   ),
+//   cleanSheet: snapshot.data!.cleanSheet.toString(),
+//   failedToScore: snapshot.data!.failedToScore.toString(),
+// ),
+// InfoFormationCard(
+//   image: Image.asset(
+//     'assets/images/formation-icon.png',
+//     width: 75,
+//     height: 75,
+//     fit: BoxFit.cover,
+//     color: Colors.white,
+//   ),
+//   bestFormation: snapshot.data!.bestFormation.toString(),
+//   bestFormationplay:
+//       snapshot.data!.bestFormationplay.toString(),
+// )

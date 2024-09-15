@@ -33,7 +33,7 @@ class InfoPlayedGoalsCard extends StatelessWidget {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withOpacity(0.7),
                     blurRadius: 20,
                     spreadRadius: 4,
                     offset: const Offset(3, 6),

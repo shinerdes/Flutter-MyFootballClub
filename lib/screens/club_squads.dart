@@ -57,16 +57,19 @@ class _ClubSquads extends State<ClubSquads> {
       playersCount =
           (json.decode(beforeData)["response"][0]["players"] as List<dynamic>)
               .length;
+
       for (int i = 0; i < playersCount; i++) {
+        print(json2[i]);
         clubSQ = ClubSQ(
             name: json2[i]["name"],
-            age: json2[i]["age"],
+            age: json2[i]["age"] ?? 0,
             number: json2[i]["number"] ?? 0,
             position: json2[i]["position"],
             photo: json2[i]["photo"] ?? "");
 
         st.add(clubSQ);
       }
+
       return st;
     } else {
       return st;

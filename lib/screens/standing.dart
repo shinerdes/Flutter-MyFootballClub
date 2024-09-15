@@ -39,7 +39,7 @@ class _StandingState extends State<Standing> {
     var request = http.Request(
         'GET',
         Uri.parse(
-            'https://api-football-v1.p.rapidapi.com/v3/standings?league=39&season=2023'));
+            'https://api-football-v1.p.rapidapi.com/v3/standings?league=39&season=2024'));
 
     request.headers.addAll(headers);
 
@@ -121,8 +121,8 @@ class _StandingState extends State<Standing> {
                     child: DataTable(
                         horizontalMargin: 10,
                         columnSpacing: 10,
-                        border: TableBorder.symmetric(
-                          outside: const BorderSide(width: 3),
+                        border: const TableBorder.symmetric(
+                          outside: BorderSide(width: 3),
                         ),
                         columns: const <DataColumn>[
                           DataColumn(
@@ -186,7 +186,7 @@ class _StandingState extends State<Standing> {
                         rows: [
                           for (int i = 0; i < snapshot.data!.length; i++)
                             DataRow.byIndex(
-                                color: MaterialStateColor.resolveWith((states) {
+                                color: WidgetStateColor.resolveWith((states) {
                                   return _setBackgroundColor(i);
                                 }),
                                 index: i,
